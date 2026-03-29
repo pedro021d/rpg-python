@@ -12,12 +12,12 @@ class Partida:
         print("=" * 40)
 
         print("\nEscolha sua ação:")
-        print("1 - Ataque Básico (0 elixir)")
-        print("2 - Ataque 1 (1 elixir)")
-        print("3 - Ataque 2 (3 elixir)")
-        print("4 - Ataque Especial (7 elixir)")
-        print("5 - Defender")
-        print("6 - Curar")
+        print(f"[1] Ataque Básico - {self.jogador.forca} dano")
+        print(f"[2] Ataque 1 - {self.jogador.forca + (self.jogador.forca // 2)} dano (1 elixir)")
+        print(f"[3] Ataque 2 - {self.jogador.forca + self.jogador.arma.dano} dano (3 elixir)")
+        print(f"[4] Ataque Especial (7 elixir)")
+        print("[5] Defender - reduz o dano pela metade")
+        print("[6] Curar - restaura 30 HP(4 elixir)")
 
     def turno_jogador(self):
         while True:
@@ -69,6 +69,8 @@ class Partida:
             self.mostrar_interface()
             self.turno_jogador()
             self.turno_inimigo()
+            self.jogador.elixir += 2
+            self.inimigo.elixir += 2
 
         print("\n===== FIM DA BATALHA =====")
         if self.jogador.vida > 0:
