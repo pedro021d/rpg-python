@@ -1,14 +1,30 @@
-import random
+import random, os
 
 class Partida:
     def __init__(self, jogador, inimigo):
         self.jogador = jogador
         self.inimigo = inimigo
 
+
+    def limpar(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+    def barra(self, valor, maximo, tamanho=20):
+        print(type(valor), type(maximo), type(tamanho))
+        preenchido = int(tamanho * valor // maximo)
+        return "[" + "█" * preenchido + "-" * (tamanho - preenchido) + "]"
+
     def mostrar_interface(self):
+        self.limpar()
         print("\n" + "=" * 40)
-        print(f"{self.jogador.nome}: {self.jogador.vida} | Elixir: {self.jogador.elixir}")
-        print(f"Inimigo: {self.inimigo.vida}")
+
+        print(f"🧙 {self.jogador.nome}")
+        print(f"Vida   : {self.barra(self.jogador.vida, self.jogador.vida_max)} {self.jogador.vida}/{self.jogador.vida_max}")
+        print(f"Elixir : {self.barra(self.jogador.elixir, self.jogador.elixir_max)} {self.jogador.elixir}/{self.jogador.elixir_max}")
+
+        print("\n👾 Inimigo")
+        print(f"Vida   : {self.barra(self.inimigo.vida, self.inimigo.vida_max)} {self.inimigo.vida}/{self.inimigo.vida_max}")
+
         print("=" * 40)
 
         print("\nEscolha sua ação:")

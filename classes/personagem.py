@@ -1,12 +1,13 @@
 from classes.arma import Espada, Cajado
 
 class Personagem:
-    def __init__(self, nome, vida, vida_max, forca, elixir, arma):
+    def __init__(self, nome, vida, vida_max, forca, elixir, elixir_max, arma):
         self.nome = nome
         self.vida = vida
         self.vida_max = vida_max
         self.forca = forca
         self.elixir = elixir
+        self.elixir_max = elixir_max
         self.arma = arma
         self.defendendo = False
 
@@ -69,7 +70,7 @@ class Personagem:
 
 class Guerreiro(Personagem):
     def __init__(self, nome):
-        super().__init__(nome, vida=100, vida_max = 100, forca=5, elixir=4, arma=Espada())
+        super().__init__(nome, vida=100, vida_max = 100, forca=5, elixir=4, elixir_max=10, arma=Espada())
 
     def ataque_especial(self, alvo):
             custo = 7
@@ -85,7 +86,7 @@ class Guerreiro(Personagem):
 
 class Mago(Personagem):
     def __init__(self, nome):
-        super().__init__(nome, 150, 150, 2, 4, Cajado())
+        super().__init__(nome, vida=150, vida_max=150, forca=2, elixir=4, elixir_max=10, arma=Cajado())
 
     def ataque_especial(self, alvo):
           custo = 7
