@@ -23,7 +23,7 @@ class Personagem:
 
     def ataque_base(self, alvo):
         dano = self.forca
-        print(f"{self.nome} socou {alvo.nome}!")
+        print(f"{self.nome} atacou {alvo.nome} com um soco!")
         alvo.receber_dano(dano)
         return True
 
@@ -35,7 +35,7 @@ class Personagem:
         
         dano = self.forca + (self.forca // 2)
         self.elixir -= custo
-        print(f"{self.nome} chutou {alvo.nome}!")
+        print(f"{self.nome} atacou {alvo.nome}!")
         alvo.receber_dano(dano)
         return True
 

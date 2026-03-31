@@ -15,10 +15,10 @@ print("""
 
 # Escolha do nome
 print("=== DEFINA O NOME DO SEU PERSONAGEM ===")
-nome = input("Nome: ")
+nome = input("Nome: ").capitalize()   
 
 # Escolha da classe
-print("=== ESCOLHA SUA CLASSE ===")
+print("\n=== ESCOLHA SUA CLASSE ===")
 print("1 - Guerreiro")
 print("2 - Mago")
 classe = input("Escolha: ")
